@@ -1,0 +1,65 @@
+package tapAcademy;
+import java.util.Scanner;
+class invalidException extends Exception{
+	@Override
+	public String getMessage() {
+		return "Try to contact Veeresh";
+	}	
+}
+ class Rbi {
+
+		int pin=1234;
+		int p;
+		void acceptinput() {
+			Scanner sc=new Scanner(System.in);
+			System.out.println("Enter the pin");
+			p=sc.nextInt();
+		}
+		void Verify() throws Exception {
+			if(pin==p)
+			{
+				System.out.println("U can withdraw Money");
+			}
+			else {
+				invalidException ipe=new invalidException();
+				System.out.println(ipe.getMessage());
+				throw ipe;
+				
+			}
+		}
+}
+	class Bank{
+		void init() {
+			Rbi a=new Rbi();
+			try {
+				a.acceptinput();
+				a.Verify();
+				
+			}
+			catch(Exception m){
+				try {
+					a.acceptinput();
+					a.Verify();
+				}
+				catch(Exception k){
+					try {
+						a.acceptinput();
+						a.Verify();
+					}
+					catch(Exception g) {
+						System.out.println("your card has been blocked");
+						
+					}
+				}
+			}
+
+		}
+	}
+
+		
+	public class Atm{	
+	public static void main(String[] args) {
+		Bank b=new Bank();
+		b.init();
+	}
+	}
