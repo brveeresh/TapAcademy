@@ -1,0 +1,118 @@
+package miniProject;
+
+public class Mobile {
+	private int screensize;
+	private String comapnyName;
+	private String operatingSystem;
+	private int batterPercent;
+	
+	
+	public Mobile(int _screensize, String _comapnyName, String _operatingSystem ) {
+		super();
+		screensize = _screensize;
+		comapnyName = _comapnyName;
+		operatingSystem = _operatingSystem;
+		batterPercent = 100;
+	}
+	
+	
+
+	public int getScreensize() {
+		return screensize;
+	}
+
+
+
+	public void setScreensize(int screensize) {
+		this.screensize = screensize;
+	}
+
+
+
+	public String getComapnyName() {
+		return comapnyName;
+	}
+
+
+
+	public void setComapnyName(String comapnyName) {
+		this.comapnyName = comapnyName;
+	}
+
+
+
+	public String getOperatingSystem() {
+		return operatingSystem;
+	}
+
+
+
+	public void setOperatingSystem(String operatingSystem) {
+		this.operatingSystem = operatingSystem;
+	}
+
+
+
+	public int getBatterPercent() {
+		return batterPercent;
+	}
+
+
+
+//	public void setBatterPercent(int batterPercent) {
+//		this.batterPercent = batterPercent;
+//	
+     public void takePicture() {
+    	 if(batterPercent<10) {
+    		 System.out.println("Battery Percent is Low , Can't take picture");
+    	 }else {
+        	 System.out.println("Picture has taken");
+        	 batterPercent-=10;
+    	 }
+     }
+     
+     public void recordVideo() {
+    	 if(batterPercent<30) {
+    		 System.out.println("Batter percent is low, can't record video");
+    	 }else
+    	 {
+    		 System.out.println("Video has recorded");
+    		 batterPercent-=30;
+    	 }
+     }
+     
+     public void playGames() {
+    	 if(batterPercent<60) {
+    		 System.out.println("Batter percent is low, can't play game");
+    	 }else
+    	 {
+    		 System.out.println("game has played");
+    		 batterPercent-=60;
+    	 }
+     }
+     
+     public void charge() {
+    	 batterPercent=100;
+    	 System.out.println("Batter percent is 100 ");
+     }
+}
+
+
+
+MAIN PROGRAM
+
+package miniProject;
+public class batteryPercent {
+
+	public static void main(String[] args) {
+		Mobile m= new Mobile(6, "Apple", "IOS");
+		System.out.println(m.getBatterPercent());
+		m.recordVideo();
+		m.takePicture();
+		m.playGames();
+		System.out.println(m.getBatterPercent());
+
+	}
+
+}
+
